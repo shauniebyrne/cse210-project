@@ -1,5 +1,9 @@
-class Element:
-    def __init__(self, image, point):
-        self._image = image
+from game.image import Image
+from game.point import Point
 
-        self._point = point
+class Element:
+    def __init__(self, image_filename, point = None):
+        self._image = Image(image_filename)
+
+        if point != None:
+            self._point = Point(point[0], point[1])
