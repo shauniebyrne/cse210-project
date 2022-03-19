@@ -1,10 +1,8 @@
 import arcade
 from constants import *
+from game.image import Image
 
-class Background:
-    def load(self):
-        self._image = arcade.load_texture("zelda-back-in-time/assets/images/tile01.png")
-
+class Background(Image):
     def draw(self):
         for x in range(0, int(SCREEN_WIDTH / IMAGE_SIZE)):
             for y in range(0, int(SCREEN_HEIGHT / IMAGE_SIZE)):
