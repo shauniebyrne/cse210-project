@@ -2,11 +2,21 @@ import arcade
 
 from game.constants import *
 
-from game.image import Image
-from game.position import Position
+from game.casting.image import Image
+from game.casting.position import Position
 
 class Actor:
+    """
+    Create what is needed for the actors in the code.
+    """
     def __init__(self, image_filename, position = None):
+        """
+        Create a new actor using the image and position
+
+        Arg:
+            image_filename: file associated with the actors image
+            position (None): position of the actor in the code
+        """
         self._image = Image(image_filename)
 
         if position != None:

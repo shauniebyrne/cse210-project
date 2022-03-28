@@ -1,6 +1,6 @@
 import arcade
 
-from game.director import Director
+from game.directing.director import Director
 
 def main():
     director = Director()

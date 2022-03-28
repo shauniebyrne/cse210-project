@@ -1,13 +1,18 @@
 import arcade
 
 from game.constants import *
-from game.background import Background
-from game.actor import Actor
-from game.level import Level
-from game.cast import Cast
+from game.casting.background import Background
+from game.casting.actor import Actor
+from game.casting.level import Level
+from game.casting.cast import Cast
 
-# The Director is a inherited class of parent arcade.Window. This is because in the Arcade library, the Window class does act like the "director"
+# The Director is an inherited class of parent arcade.Window. 
+# This is because in the Arcade library, the Window class does act like the "director"
 class Director(arcade.Window):
+    """A class that directs the game.
+    
+    
+    """
     def __init__(self):
         super().__init__(SCREEN_WIDTH, SCREEN_HEIGHT, GAME_NAME)
 
@@ -18,7 +23,7 @@ class Director(arcade.Window):
 
         self._level = Level('1.csv', self._cast)
 
-        self._player = Actor('female_idle.png', [2, 3])
+        self._player = Actor('player.png', [2, 3])
 
     def on_draw(self):
         self._background.draw()

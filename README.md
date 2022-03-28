@@ -1,6 +1,9 @@
 # Zelda: Back in Time
 A game loosely based on the original Zelda game
 
+## How to Play
+Move the character using the arrow keys to collect all the keys in all three levels. Eat the food to increase your life points. Watch out for the bad guy, if he catches you, he will decrease your life points.
+
 ## Getting Started
 ---
 Make sure you have Python 3.8.0 or newer and Arcade library installed and running on your machine. You can install Arcade library by opening a terminal and running the following command.
@@ -21,6 +24,10 @@ The project files and folders are organized as follows:
 root                    (project root folder)
 +-- zelda-back-in-time  (source code for game)
   +-- game              (specific game classes)
+  +--casting            (various actor classes)
+  +--directing          (director classes)
+  +--scripting          (various action classes)
+  +--servies            (various service classes)
   +-- __main__.py       (entry point for program)
   +-- constants.py      (game constants)
 +-- README.md           (general info)

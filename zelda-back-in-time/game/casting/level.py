@@ -2,10 +2,20 @@ import arcade
 import csv
 
 from game.constants import *
-from game.actor import Actor
+from game.casting.actor import Actor
 
 class Level:
+    """
+    To add the actors that are needed in each level in the game. 
+    """
     def __init__(self, file_name, cast):
+        """
+        Constructs a cast and map for the level.
+
+        Args:
+            file_name: Name of the file needed
+            cast: What is needed to be done from the Cast class
+        """
         self._cast = cast
 
         self._map = []
@@ -25,6 +35,8 @@ class Level:
                     actor = Actor('bush.png', [x, y])
                 if self._map[y][x] == 'd':
                     actor = Actor('drum.png', [x, y])
+                if self._map[y][x] == 'g':
+                    actor = Actor('gem.png', [x, y])
 
                 if actor:
                     self._cast.add_actor('elements', actor)
