@@ -11,7 +11,8 @@ from game.casting.cast import Cast
 class Director(arcade.Window):
     """A class that directs the game.
     
-    
+    Attribute:
+        _cast (Cast): Seperate actors to create.
     """
     def __init__(self):
         super().__init__(SCREEN_WIDTH, SCREEN_HEIGHT, GAME_NAME)
@@ -19,20 +20,39 @@ class Director(arcade.Window):
         self._cast = Cast()
 
     def setup(self):
+        """Create all Cast members"""
         self._background = Background('grass.png')
-
+        self._background2 = Background('ground.png')
+        self._background3 = Background('bluesky.png')
         self._level = Level('1.csv', self._cast)
-
-        self._player = Actor('player.png', [2, 3])
+        self._leve2 = Level('2.csv', self._cast)
+        self._leve3 = Level('3.csv', self._cast)
+        self._player = Actor('player.png', [3, 3])
+        self._player2 = Actor('badguy.png', [11, 8])
+        self._food = Actor('apple.png', [5, 6])
+        self._food2 = Actor('cherries.png', [8, 5])
+        self._key = Actor('key.png', [13, 7]) 
+        self._key2 = Actor('key.png', [7, 4]) 
 
     def on_draw(self):
+        """Draw all Cast members"""
         self._background.draw()
-
         self._player.draw()
-
+        self._player2.draw()
         self._level.draw()
+        self._food.draw()
+        self._food2.draw()
+        self._key.draw()
+        self._key2.draw()
 
     def on_key_press(self, key, modifiers):
+        """ Move player around gameboard.
+
+        Args:
+            key: Key pressed by player.
+            modifiers: Necessary to make changes.
+        
+        """
         position = self._player.get_position()
         
         x = position.get_x()
