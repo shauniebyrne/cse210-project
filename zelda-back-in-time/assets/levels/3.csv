@@ -1,10 +1,10 @@
-gc	gc	gc	gc	gc	gc	gc	gc	gc	gc	gc	gc	gc	gc	gc
-gc	gc	e	e	e	e	e	e	e	e	e	e	e	gc	gc
-gc	e	e	e	gc	e	e	e	e	e	gc	gc	e	e	gc
-gc	e	gc	gc	gc	e	e	gc	e	e	e	gc	e	e	gc
-e	e	e	e	e	e	e	e	e	e	e	e	e	e	gc
-e	e	gc	gc	gc	e	e	e	e	e	e	gc	e	e	gc
-e	e	e	e	gc	e	e	e	e	e	e	e	e	e	gc
-e	e	e	e	e	e	e	e	e	gc	e	e	e	e	gc
-gc	gc	e	gc	e	e	e	gc	gc	e	e	e	e	gc	gc
-gc	gc	gc	gc	gc	gc	gc	gc	gc	gc	gc	gc	gc	gc	gc
+gc,gc,gc,gc,gc,gc,gc,gc,gc,gc,gc,gc,gc,gc,gc
+gc,gc,e,e,e,e,e,e,e,e,e,e,e,gc,gc
+gc,e,e,e,gc,e,e,e,e,e,gc,gc,e,e,gc
+gc,e,gc,gc,gc,e,e,gc,e,e,e,gc,e,e,gc
+e,e,e,e,e,e,e,e,e,e,e,e,e,e,gc
+e,e,gc,gc,gc,e,e,e,e,e,e,gc,e,e,d
+e,e,e,e,gc,e,e,e,e,e,e,e,e,e,gc
+e,e,e,e,e,e,e,e,e,gc,e,e,e,e,gc
+gc,gc,e,gc,e,e,e,gc,gc,e,e,e,e,gc,gc
+gc,gc,gc,gc,gc,gc,gc,gc,gc,gc,gc,gc,gc,gc,gc

@@ -24,9 +24,15 @@ class Director(arcade.Window):
         self._background = Background('grass.png')
         self._background2 = Background('ground.png')
         self._background3 = Background('bluesky.png')
-        self._level = Level('1.csv', self._cast)
-        self._leve2 = Level('2.csv', self._cast)
-        self._leve3 = Level('3.csv', self._cast)
+
+        self._level1 = Level('1.csv', self._cast)
+        self._level2 = Level('2.csv', self._cast)
+        self._level3 = Level('3.csv', self._cast)
+
+        # This is the current level
+        self._level = self._level1
+        self._level_number = 1
+
         self._player = Actor('player.png', [3, 3])
         self._player2 = Actor('badguy.png', [11, 8])
         self._food = Actor('apple.png', [5, 6])
@@ -71,6 +77,26 @@ class Director(arcade.Window):
         elif key == arcade.key.RIGHT:
             if x <= 13:
                 x = x + 1
+
+        if self._level_number == 1:
+            if x == 0 and y == 5:
+                self._level = self._level2
+                self._level_number = 2
+                self._player.get_position().set_x(1)
+                self._player.get_position().set_y(5)
+            elif x == 14 and y == 5:
+                self._level = self._level3
+                self._level_number = 3
+                self._player.get_position().set_x(13)
+                self._player.get_position().set_y(5)
+        elif self._level_number == 2:
+            if x == 0 and y == 5:
+                self._level = self._level1
+                self._level_number = 1
+        elif self._level_number == 3:
+            if x == 14 and y == 5:
+                self._level = self._level1
+                self._level_number = 1
 
         # Check for player collision with any elements. If there is a collision, return to prevent the collision
         for actor in self._cast.get_actors('elements'):

@@ -16,17 +16,21 @@ class Level:
             file_name: Name of the file needed
             cast: What is needed to be done from the Cast class
         """
+        self._file_name = file_name
+
         self._cast = cast
 
+    def draw(self):
         self._map = []
 
-        with open(LEVELS_DIRECTORY + file_name) as csvfile:
+        self._cast.remove_all_actors()
+
+        with open(LEVELS_DIRECTORY + self._file_name) as csvfile:
             reader = csv.reader(csvfile)
 
             for row in reader:
                 self._map.append(row)
 
-    def draw(self):
         for y in range(0, len(self._map)):
             for x in range(0, len(self._map[y])):
                 actor = None
@@ -43,6 +47,8 @@ class Level:
                     actor = Actor('rock.png', [x, y])
                 if self._map[y][x] == 'gc':
                     actor = Actor('greycloud.png', [x, y])
+                if self._map[y][x] == 'd':
+                    actor = Actor('door.png', [x, y])
 
                 if actor:
                     self._cast.add_actor('elements', actor)
