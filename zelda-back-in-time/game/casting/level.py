@@ -20,16 +20,16 @@ class Level:
 
         self._cast = cast
 
-    def draw(self):
         self._map = []
-
-        self._cast.remove_all_actors()
 
         with open(LEVELS_DIRECTORY + self._file_name) as csvfile:
             reader = csv.reader(csvfile)
 
             for row in reader:
                 self._map.append(row)
+
+    def draw(self):
+        self._cast.remove_all_actors()
 
         for y in range(0, len(self._map)):
             for x in range(0, len(self._map[y])):

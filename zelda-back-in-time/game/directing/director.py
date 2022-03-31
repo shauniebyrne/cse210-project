@@ -51,10 +51,18 @@ class Director(arcade.Window):
         self._player.draw()
         self._player2.draw()
         self._level.draw()
-        self._food.draw()
-        self._food2.draw()
-        self._key.draw()
-        self._key2.draw()
+
+        if self._food:
+            self._food.draw()
+
+        if self._food2:
+            self._food2.draw()
+
+        if self._key:
+            self._key.draw()
+
+        if self._key2:
+            self._key2.draw()
 
         # Put the Lives on the screen
         output = f"Lives:{self._life}"
@@ -116,6 +124,19 @@ class Director(arcade.Window):
             if x == 14 and y == 5:
                 self._level = self._level1
                 self._level_number = 1
+
+        if x == 13 and y == 7:
+            self._key = None
+            self._keypoints = self._keypoints + 1
+        elif x == 7 and y == 4:
+            self._key2 = None
+            self._keypoints = self._keypoints + 1
+        elif x == 4 and y == 8:
+            self._food = None
+            self._life = self._life + 1
+        elif x == 8 and y == 1:
+            self._food2 = None
+            self._life = self._life + 1
 
         # Check for player collision with any elements. 
         # If there is a collision, return to prevent the collision
