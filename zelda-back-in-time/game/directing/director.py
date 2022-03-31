@@ -139,26 +139,26 @@ class Director(arcade.Window):
         keypoints = self._keypoints
         # for self._player in self._cast.get_all_actors():
         #     if arcade.Sprite.collides_with_point(self._food, (4,8)):
-        #         life += life
+        #         life += 1
         #         arcade.Sprite.remove_from_sprite_lists(self._food)
 
         # elif self._player.collides_with_point((8,1)):
-        #     life += life
+        #     life += 1
         #     self._cast.remove_actor('elements', self._food2)
 
         # # If keys, add to the key count (key points)
         # if self._player.collides_with_point((13,7)):
-        #     keypoints += keypoints
+        #     keypoints += 1
         #     self._cast.remove_actor('elements', self._key)
 
         # elif self._player.collides_with_point((7,4)):
-        #     keypoints += keypoints
+        #     keypoints += 1
         #     self._cast.remove_actor('elements', self._key2)
 
         #If bad guy, take away life
         # actors_list = arcade.check_for_collision(self._player, self._player2)
         # if actors_list:
-        #     life -= life
+        #     life -= 1
 
         # Draw different backgrounds
         if self._level_number == 1:
