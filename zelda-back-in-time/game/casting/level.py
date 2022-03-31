@@ -45,6 +45,12 @@ class Level:
                     actor = Actor('whitecloud.png', [x, y])
                 if self._map[y][x] == 'd':
                     actor = Actor('door.png', [x, y])
+                if self._map[y][x] == 'a':
+                    actor = Actor('apple.png', [x, y])
+                if self._map[y][x] == 'c':
+                    actor = Actor('cherries.png', [x, y])
+                if self._map[y][x] == 'k':
+                    actor = Actor('key.png', [x, y])
 
                 if actor:
                     self._cast.add_actor('elements', actor)
