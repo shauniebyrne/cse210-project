@@ -17,3 +17,9 @@ SCREEN_WIDTH = 960
 SCREEN_HEIGHT = 640
 
 SPRITE_SCALING_BOX = 1
+
+# Life info
+START_LIFE = 3
+
+# Key count info
+KEY_COUNT = 0

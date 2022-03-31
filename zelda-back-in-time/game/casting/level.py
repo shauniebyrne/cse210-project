@@ -37,16 +37,12 @@ class Level:
 
                 if self._map[y][x] == 'b':
                     actor = Actor('bush.png', [x, y])
-                if self._map[y][x] == 'd':
-                    actor = Actor('drum.png', [x, y])
-                if self._map[y][x] == 'g':
-                    actor = Actor('gem.png', [x, y])
                 if self._map[y][x] == 't':
                     actor = Actor('tree.png', [x, y])
                 if self._map[y][x] == 'r':
                     actor = Actor('rock.png', [x, y])
                 if self._map[y][x] == 'gc':
-                    actor = Actor('greycloud.png', [x, y])
+                    actor = Actor('whitecloud.png', [x, y])
                 if self._map[y][x] == 'd':
                     actor = Actor('door.png', [x, y])
 
