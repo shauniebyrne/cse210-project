@@ -21,5 +21,5 @@ SPRITE_SCALING_BOX = 1
 # Life info
 START_LIFE = 3
 
-# Key points info
-KEY_POINTS = range(0, 12)
+# Key count info
+KEY_COUNT = 0

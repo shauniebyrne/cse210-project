@@ -42,10 +42,11 @@ class Director(arcade.Window):
         self._life = START_LIFE
 
         # Key count
-        self._keypoints = KEY_POINTS
+        self._keypoints = KEY_COUNT
 
     def on_draw(self):
         """Draw everything for the game"""
+        arcade.start_render()
         self._background.draw()
         self._player.draw()
         self._player2.draw()
@@ -56,12 +57,12 @@ class Director(arcade.Window):
         self._key2.draw()
 
         # Put the Lives on the screen
-        output = f"Lives: {self._life}"
-        arcade.draw_text(output, 3, 10, arcade.color.BLACK, 16)
+        output = f"Lives:{self._life}"
+        arcade.draw_text(output, 875, 620, arcade.color.WHITE, 16, 50, "right", "arial", True)
 
         # Put the Key Points on the screen
         output2 = f"Keys: {self._keypoints}"
-        arcade.draw_text(output2, 8, 10, arcade.color.BLACK, 16)
+        arcade.draw_text(output2, 10, 620, arcade.color.WHITE, 16, 30, font_name="arial", bold=True,)
 
     def on_key_press(self, key, modifiers):
         """ Create what needs to happen as the hero moves around the
@@ -134,11 +135,12 @@ class Director(arcade.Window):
             
         # Check if hero collides with food or keys or bad guy
         # If food, add to Life
-        # life = self._life
-        # keypoints = self._keypoints
-        # if self._player.collides_with_point((4,8)):
-        #     life += life
-        #     self._cast.remove_actor('elements', self._food)
+        life = self._life
+        keypoints = self._keypoints
+        # for self._player in self._cast.get_all_actors():
+        #     if arcade.Sprite.collides_with_point(self._food, (4,8)):
+        #         life += life
+        #         arcade.Sprite.remove_from_sprite_lists(self._food)
 
         # elif self._player.collides_with_point((8,1)):
         #     life += life
@@ -153,8 +155,9 @@ class Director(arcade.Window):
         #     keypoints += keypoints
         #     self._cast.remove_actor('elements', self._key2)
 
-        # # If bad guy, take away life
-        # if self._player.collides_with_sprite(self._player2):
+        #If bad guy, take away life
+        # actors_list = arcade.check_for_collision(self._player, self._player2)
+        # if actors_list:
         #     life -= life
 
         # Draw different backgrounds
