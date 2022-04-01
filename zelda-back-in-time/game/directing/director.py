@@ -42,8 +42,34 @@ class Director(arcade.Window):
         self._player = Actor('player.png', [3, 3])
 
         self._badguy_l1 = Actor('badguy.png', [11, 8])
+        self._badguy_l1_2 = Actor('badguy.png', [8, 5])
+        self._badguy_l1_3 = Actor('badguy.png', [2, 7])
+        self._badguy_l1_4 = Actor('badguy.png', [6, 3])
+        self._badguy_l1_5 = Actor('badguy.png', [4, 2])
+        self._badguy_l1_6 = Actor('badguy.png', [5, 6])
+        self._badguy_l1_7 = Actor('badguy.png', [10, 3])
+        self._badguy_l1_8 = Actor('badguy.png', [1, 5])
+        self._badguy_l1_9 = Actor('badguy.png', [13, 5])
+
         self._badguy_l2 = Actor('badguy.png', [11, 8])
+        self._badguy_l2_2 = Actor('badguy.png', [8, 5])
+        self._badguy_l2_3 = Actor('badguy.png', [2, 7])
+        self._badguy_l2_4 = Actor('badguy.png', [6, 3])
+        self._badguy_l2_5 = Actor('badguy.png', [4, 2])
+        self._badguy_l2_6 = Actor('badguy.png', [5, 6])
+        self._badguy_l2_7 = Actor('badguy.png', [10, 3])
+        self._badguy_l2_8 = Actor('badguy.png', [1, 5])
+        self._badguy_l2_9 = Actor('badguy.png', [13, 5])
+
         self._badguy_l3 = Actor('badguy.png', [11, 8])
+        self._badguy_l3_2 = Actor('badguy.png', [8, 5])
+        self._badguy_l3_3 = Actor('badguy.png', [2, 7])
+        self._badguy_l3_4 = Actor('badguy.png', [6, 3])
+        self._badguy_l3_5 = Actor('badguy.png', [4, 2])
+        self._badguy_l3_6 = Actor('badguy.png', [5, 6])
+        self._badguy_l3_7 = Actor('badguy.png', [10, 3])
+        self._badguy_l3_8 = Actor('badguy.png', [1, 5])
+        self._badguy_l3_9 = Actor('badguy.png', [13, 5])
 
         self._food1_l1 = Actor('apple.png', [4, 8])
         self._food2_l1 = Actor('cherries.png', [8, 1])
@@ -80,23 +106,48 @@ class Director(arcade.Window):
         elif self._intro:
             self._background.draw()
 
-            arcade.draw_text(GAME_NAME, 325, 400, arcade.color.WHITE, 20, 300, "center", "arial", True)
-
-            arcade.draw_text('Press [Enter] to Begin', 325, 200, arcade.color.WHITE, 20, 300, "center", "arial", True)
+            arcade.draw_text(GAME_NAME, 325, 400, arcade.color.BLACK, 20, 300, "center", "arial", True)
+            arcade.draw_text('Collect all 6 keys to win. Eat fruit to add to your life. Watch out for the trolls.', 325, 365, arcade.color.WHITE, 20, 300, "center", "arial", True)
+            arcade.draw_text('Press [Enter] to Begin', 325, 200, arcade.color.BLACK, 20, 300, "center", "arial", True)
+            arcade.draw_text('Press [Q] to Quit at any time', 325, 150, arcade.color.BLACK, 20, 300, "center", "arial", True)
             return
 
         self._background.draw()
         self._player.draw()
         self._level.draw()
 
-        if self._level_number == 1 and self._badguy_l1:
+        if self._level_number == 1:
             self._badguy_l1.draw()
+            self._badguy_l1_2.draw()
+            self._badguy_l1_3.draw()
+            self._badguy_l1_4.draw()
+            self._badguy_l1_5.draw()
+            self._badguy_l1_6.draw()
+            self._badguy_l1_7.draw()
+            self._badguy_l1_8.draw()
+            self._badguy_l1_9.draw()
 
-        if self._level_number == 2 and self._badguy_l2:
+        if self._level_number == 2:
             self._badguy_l2.draw()
+            self._badguy_l2_2.draw()
+            self._badguy_l2_3.draw()
+            self._badguy_l2_4.draw()
+            self._badguy_l2_5.draw()
+            self._badguy_l2_6.draw()
+            self._badguy_l2_7.draw()
+            self._badguy_l2_8.draw()
+            self._badguy_l2_9.draw()
 
-        if self._level_number == 3 and self._badguy_l3:
+        if self._level_number == 3:
             self._badguy_l3.draw()
+            self._badguy_l3_2.draw()
+            self._badguy_l3_3.draw()
+            self._badguy_l3_4.draw()
+            self._badguy_l3_5.draw()
+            self._badguy_l3_6.draw()
+            self._badguy_l3_7.draw()
+            self._badguy_l3_8.draw()
+            self._badguy_l3_9.draw()
 
         if self._level_number == 1 and self._food1_l1:
             self._food1_l1.draw()
@@ -182,7 +233,7 @@ class Director(arcade.Window):
             if x <= 13:
                 x = x + 1
 
-        # Swith between levels (the hero)
+        # Switch between levels (the hero)
         if self._level_number == 1:
             if x == 0 and y == 5:
                 self._level = self._level2
@@ -203,6 +254,7 @@ class Director(arcade.Window):
                 self._level = self._level1
                 self._level_number = 1
 
+        # Add key points and take keys away
         if self._level_number == 1 and x == 13 and y == 7:
             self._key1_l1 = None
             self._keypoints = self._keypoints + 1
@@ -224,9 +276,28 @@ class Director(arcade.Window):
             self._key2_l3 = None
             self._keypoints = self._keypoints + 1
 
+        # Take away life points (bad guy)
         elif x == 11 and y == 8:
             self._life = self._life - 1
+        elif x == 8 and y == 5:
+            self._life = self._life - 1
+        elif x == 2 and y == 7:
+            self._life = self._life - 1
+        elif x == 6 and y == 3:
+            self._life = self._life - 1
+        elif x == 4 and y == 2:
+            self._life = self._life - 1
+        elif x == 5 and y == 6:
+            self._life = self._life - 1
+        elif x == 10 and y == 3:
+            self._life = self._life - 1
+        elif x == 1 and y == 5:
+            self._life = self._life - 1
+        elif x == 13 and y == 5:
+            self._life = self._life - 1
 
+
+        # Add life points and take food away
         elif self._level_number == 1 and x == 4 and y == 8:
             self._food1_l1 = None
             self._life = self._life + 1
@@ -249,6 +320,9 @@ class Director(arcade.Window):
             self._life = self._life + 1
 
         if self._life == 0:
+            self.game_over()
+
+        if self._keypoints == 6:
             self.game_over()
 
         # Check for player collision with any elements. 
