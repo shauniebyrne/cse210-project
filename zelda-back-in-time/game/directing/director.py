@@ -33,10 +33,6 @@ class Director(arcade.Window):
 
         self._player = Actor('player.png', [3, 3])
         self._player2 = Actor('badguy.png', [11, 8])
-        self._food = Actor('apple.png', [4, 8])
-        self._food2 = Actor('cherries.png', [8, 1])
-        self._key = Actor('key.png', [13, 7]) 
-        self._key2 = Actor('key.png', [7, 4]) 
 
         # Lives
         self._life = START_LIFE
@@ -51,18 +47,6 @@ class Director(arcade.Window):
         self._player.draw()
         self._player2.draw()
         self._level.draw()
-
-        if self._food:
-            self._food.draw()
-
-        if self._food2:
-            self._food2.draw()
-
-        if self._key:
-            self._key.draw()
-
-        if self._key2:
-            self._key2.draw()
 
         # Put the Lives on the screen
         output = f"Lives:{self._life}"
@@ -99,8 +83,18 @@ class Director(arcade.Window):
             if x <= 13:
                 x = x + 1
 
-        # Create keys to end game
+        # Create key to end game
         if key == arcade.key.Q:
+            # Quit game
+            arcade.close_window()
+
+        # Create key to play the game again
+        if key == arcade.key.Y:
+            # Run game
+            arcade.run()
+
+        # Create key keep the game ended by players choice
+        if key == arcade.key.N:
             # Quit game
             arcade.close_window()
 
@@ -124,24 +118,24 @@ class Director(arcade.Window):
             if x == 14 and y == 5:
                 self._level = self._level1
                 self._level_number = 1
-
-        if x == 13 and y == 7:
-            self._key = None
-            self._keypoints = self._keypoints + 1
-        elif x == 7 and y == 4:
-            self._key2 = None
-            self._keypoints = self._keypoints + 1
-        elif x == 4 and y == 8:
-            self._food = None
-            self._life = self._life + 1
-        elif x == 8 and y == 1:
-            self._food2 = None
-            self._life = self._life + 1
-
+        
         # Check for player collision with any elements. 
-        # If there is a collision, return to prevent the collision
         for actor in self._cast.get_actors('elements'):
-            if x == actor.get_position().get_x() and y == actor.get_position().get_y():
+            # Check for key or food collision, add to key points (keys) or life points (food)
+            if x == 13 and y == 7:
+                self._cast.remove_actor("elements", actor)
+                self._keypoints += 1
+            elif x == 7 and y == 4:
+                actor = None
+                self._keypoints += 1
+            elif x == 4 and y == 8:
+                actor = None
+                self._life += 1
+            elif x == 8 and y == 1:
+                actor = None
+                self._life += 1
+            # If there is a collision, return to prevent the collision
+            elif x == actor.get_position().get_x() and y == actor.get_position().get_y():
                 return
 
         position.set_x(x)
@@ -154,33 +148,6 @@ class Director(arcade.Window):
         Arg:
             delta_time (float): Time since the last update"""
             
-        # Check if hero collides with food or keys or bad guy
-        # If food, add to Life
-        life = self._life
-        keypoints = self._keypoints
-        # for self._player in self._cast.get_all_actors():
-        #     if arcade.Sprite.collides_with_point(self._food, (4,8)):
-        #         life += life
-        #         arcade.Sprite.remove_from_sprite_lists(self._food)
-
-        # elif self._player.collides_with_point((8,1)):
-        #     life += life
-        #     self._cast.remove_actor('elements', self._food2)
-
-        # # If keys, add to the key count (key points)
-        # if self._player.collides_with_point((13,7)):
-        #     keypoints += keypoints
-        #     self._cast.remove_actor('elements', self._key)
-
-        # elif self._player.collides_with_point((7,4)):
-        #     keypoints += keypoints
-        #     self._cast.remove_actor('elements', self._key2)
-
-        #If bad guy, take away life
-        # actors_list = arcade.check_for_collision(self._player, self._player2)
-        # if actors_list:
-        #     life -= life
-
         # Draw different backgrounds
         if self._level_number == 1:
             self._background = Background('grass.png')

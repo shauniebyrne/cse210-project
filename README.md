@@ -2,7 +2,7 @@
 A game loosely based on the original Zelda game
 
 ## How to Play
-Move the character using the arrow keys to collect all the keys in all three levels. Eat the food to increase your life points. Watch out for the bad guy, if he catches you, he will decrease your life points.
+Move the hero using the arrow keys to collect all the keys in all three levels. Eat the food to increase your life points. Watch out for the troll, if he catches you, he will decrease your life points. Quit the game at anytime by pressing the "Q" key.
 
 ## Getting Started
 ---
@@ -26,8 +26,6 @@ root                    (project root folder)
   +-- game              (specific game classes)
   +--casting            (various actor classes)
   +--directing          (director classes)
-  +--scripting          (various action classes)
-  +--servies            (various service classes)
   +-- __main__.py       (entry point for program)
   +-- constants.py      (game constants)
 +-- README.md           (general info)
