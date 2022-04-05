@@ -23,6 +23,9 @@ class Director(arcade.Window):
 
         self._game_over = False
 
+        self._audio = ('LOZ_Get_Heart.wav', False)
+        self._music = ('The Legend of Zelda A Link To The Past OST.mp3', False)
+
     def setup(self):
         self._background = Background('grass.png')
 
@@ -213,6 +216,7 @@ class Director(arcade.Window):
             if key == arcade.key.ENTER:
                 self._intro = False
                 self.setup()
+                arcade.play_sound(self._music, 1.0, 0, False)
             return
 
         position = self._player.get_position()        
@@ -256,23 +260,29 @@ class Director(arcade.Window):
 
         # Add key points and take keys away
         if self._level_number == 1 and x == 13 and y == 7:
+            arcade.play_sound(self._audio, 2, -1, False)
             self._key1_l1 = None
             self._keypoints = self._keypoints + 1
         elif self._level_number == 1 and x == 7 and y == 4:
+            arcade.play_sound(self._audio, 2, -1, False)
             self._key2_l1 = None
             self._keypoints = self._keypoints + 1
 
         if self._level_number == 2 and x == 13 and y == 7:
+            arcade.play_sound(self._audio, 2, -1, False)
             self._key1_l2 = None
             self._keypoints = self._keypoints + 1
         elif self._level_number == 2 and x == 7 and y == 4:
+            arcade.play_sound(self._audio, 2, -1, False)
             self._key2_l2 = None
             self._keypoints = self._keypoints + 1
 
         if self._level_number == 3 and x == 13 and y == 7:
+            arcade.play_sound(self._audio, 2, -1, False)
             self._key1_l3 = None
             self._keypoints = self._keypoints + 1
         elif self._level_number == 3 and x == 7 and y == 4:
+            arcade.play_sound(self._audio, 2, -1, False)
             self._key2_l3 = None
             self._keypoints = self._keypoints + 1
 
@@ -299,23 +309,29 @@ class Director(arcade.Window):
 
         # Add life points and take food away
         elif self._level_number == 1 and x == 4 and y == 8:
+            arcade.play_sound(self._audio, 2, -1, False)
             self._food1_l1 = None
             self._life = self._life + 1
         elif self._level_number == 1 and x == 8 and y == 1:
+            arcade.play_sound(self._audio, 2, -1, False)
             self._food2_l1 = None
             self._life = self._life + 1
 
         elif self._level_number == 2 and x == 4 and y == 8:
+            arcade.play_sound(self._audio, 2, -1, False)
             self._food1_l2 = None
             self._life = self._life + 1
         elif self._level_number == 2 and x == 8 and y == 1:
+            arcade.play_sound(self._audio, 2, -1, False)
             self._food2_l2 = None
             self._life = self._life + 1
 
         elif self._level_number == 3 and x == 4 and y == 8:
+            arcade.play_sound(self._audio, 2, -1, False)
             self._food1_l3 = None
             self._life = self._life + 1
         elif self._level_number == 3 and x == 8 and y == 1:
+            arcade.play_sound(self._audio, 2, -1, False)
             self._food2_l3 = None
             self._life = self._life + 1
 
